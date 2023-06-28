@@ -5,7 +5,26 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "jest"
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageReporters": ["text"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 85,
+        "lines": 85,
+        "statements": 85
+      },
+      "./src/**/*.js": {
+        "lines": 85
+      }
+    }
   },
   "repository": {
     "type": "git",
